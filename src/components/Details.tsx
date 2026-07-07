@@ -6,6 +6,8 @@ import { profile } from '../data/profile'
 import { sections } from '../config/sections'
 
 export function Details() {
+  const getCertificateUrl = (cert: (typeof certifications)[number]) => cert.certificateUrl ?? cert.credentialUrl
+
   return (
     <section className="section section-white detail-section">
       <div className="container details-grid">
@@ -30,7 +32,40 @@ export function Details() {
         </article>}
         {sections.certifications && <article className="detail-card">
           <div className="detail-icon">✦</div><h2>Certifications</h2>
-          <div className="cert-list">{certifications.map((cert) => <div key={cert.title}><span>✓</span><p><strong>{cert.title}</strong><small>{cert.issuer} · {cert.year}</small></p></div>)}</div>
+          <div className="cert-list">{certifications.map((cert) => (
+            <div key={cert.title}>
+              <span>✓</span>
+              <p>
+                <strong>{cert.title}</strong>
+                <small>{cert.issuer} · {cert.year}</small>
+                {cert.credentialId && <small>Credential ID: {cert.credentialId}</small>}
+                {(getCertificateUrl(cert) || cert.verificationUrl) && (
+                  <span className="cert-actions">
+                    {getCertificateUrl(cert) && (
+                      <a
+                        href={getCertificateUrl(cert)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open certificate for ${cert.title} in a new tab`}
+                      >
+                        View Certificate
+                      </a>
+                    )}
+                    {cert.verificationUrl && (
+                      <a
+                        href={cert.verificationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Verify credential for ${cert.title} in a new tab`}
+                      >
+                        Verify Credential
+                      </a>
+                    )}
+                  </span>
+                )}
+              </p>
+            </div>
+          ))}</div>
         </article>}
       </div>
     </section>

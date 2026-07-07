@@ -102,6 +102,28 @@ public/resume/Arul-Ananth-Resume.pdf
 
 If the filename changes, update `resumeUrl` in `src/data/profile.ts`. Resume links open the PDF in a new browser tab so the browser can preview, search, print, or download it.
 
+## Add certificates
+
+Put public certificate files in:
+
+```text
+public/certificates/
+```
+
+Then reference them from `src/data/certifications.ts`:
+
+```ts
+{
+  title: 'Certificate Name',
+  issuer: 'Issuer Name',
+  year: '2026',
+  certificateUrl: '/certificates/certificate-name.pdf',
+  verificationUrl: 'https://optional-public-verification-link.com',
+}
+```
+
+Certificate links open in a new browser tab so recruiters can preview PDFs/images using the browser's built-in viewer. Do not add sensitive documents to `public/certificates/`; files in `public/` are publicly accessible on the deployed website.
+
 ## Customize colors
 
 Edit the CSS variables at the top of `src/styles/global.css`. Keep `src/config/theme.ts` synchronized so template users can inspect the theme values from one typed configuration module.

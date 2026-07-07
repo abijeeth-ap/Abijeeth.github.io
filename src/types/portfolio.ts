@@ -101,6 +101,9 @@ export interface Certification {
   title: string
   issuer: string
   year: string
+  credentialId?: string
+  certificateUrl?: string
+  verificationUrl?: string
   credentialUrl?: string
 }
 
