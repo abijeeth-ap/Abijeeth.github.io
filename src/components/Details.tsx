@@ -23,7 +23,7 @@ export function Details() {
         </article>}
         {sections.achievements && <article id="achievements" className="detail-card">
           <div className="detail-icon">♢</div><h2>Competitive Programming</h2>
-          <div className="achievement-list">{achievements.map((item) => <div key={item.platform}><span><strong>{item.platform}</strong><small>{item.result}</small></span><i aria-hidden="true"><b /><b /><b /><b /></i></div>)}</div>
+          <div className="achievement-list">{achievements.map((item) => <div key={item.platform}><span><strong>{item.platform}</strong><small>{item.result}</small></span></div>)}</div>
         </article>}
         {sections.projects && <article className="detail-card">
           <div className="detail-icon">&lt;/&gt;</div><h2>Repository Highlights</h2>
