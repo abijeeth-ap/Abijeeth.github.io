@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: 'Abijeeth A P',
   shortName: 'Abijeeth',
   footerName: 'Abijeeth A P',
-  logoText: 'AAP',
+  logoText: 'AAP ',
   greeting: "Hi, I'm",
   role: 'Aspiring Game Developer',
   summary:
